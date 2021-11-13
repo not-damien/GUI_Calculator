@@ -92,6 +92,11 @@ public class MainWindow extends JFrame {
 
 
     }
+
+    /**
+     * creates 16 JButtons ordered 0-9 and A--F
+     * @return An array of Jbuttons 0-9 & A-F
+     */
     public static JButton[] createButtons(){
         JButton[] digits = new JButton[16];
         for(int i = 0; i < digits.length-6 ;i++ ){
