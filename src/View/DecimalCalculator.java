@@ -41,6 +41,35 @@ public class DecimalCalculator extends MainWindow {
             myOperations[i] = new JButton(operationSymbols[i]);
             buttonPanel.add(myOperations[i]);
         }
+        for(int i = 0 ; i < 4 ;i++){
+            int finalI = i;
+            myOperations[i].addActionListener(
+                    new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            String s = textDisplay.getText();
+                            textDisplay.setText(s + myOperations[finalI].getText());
+                        }
+                    }
+            );
+        }
+        myOperations[4].addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //todo "=" functions
+                    }
+                }
+        );
+
+        myOperations[5].addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //todo clear functionality
+                    }
+                }
+        );
 
         mainPanel.add(buttonPanel);
 
@@ -58,5 +87,4 @@ public class DecimalCalculator extends MainWindow {
 
         setVisible(true);
     }
-    //todo fill and implement
 }
