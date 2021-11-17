@@ -14,6 +14,7 @@ public class BinaryCalculator extends MainWindow {
 
         var textDisplay = new JTextField(20);
         mainPanel.add(textDisplay);
+        textDisplay.setEditable(false);
 
         //todo add buttons
         String[] radioSymbols = {"+","-","/","*"};

@@ -2,7 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-
+//todo keep under 862
 public class BigNumberCalculator extends MainWindow {
     public BigNumberCalculator() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

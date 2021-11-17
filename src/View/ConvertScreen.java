@@ -6,8 +6,6 @@ import NumbersAndMath.Hexadecimal;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ConvertScreen extends MainWindow{
     ConvertScreen(){
@@ -25,7 +23,7 @@ public class ConvertScreen extends MainWindow{
         mainPanel.add(dataType);
         var textDisplay = new JTextField(15);
         mainPanel.add(textDisplay);
-
+        textDisplay.setEditable(false);
 
         var buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4,4));
@@ -38,18 +36,11 @@ public class ConvertScreen extends MainWindow{
         for(int i = 0; i < 10;i++) {
             final int j = i;
             myDigits[i].addActionListener(
-                    new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                                String s = textDisplay.getText();
-                                textDisplay.setText(s + j);
-                        }
+                    e -> {
+                            String s = textDisplay.getText();
+                            textDisplay.setText(s + j);
                     });
         }
-
-
-
-
 
 
         var dataType2 = new JComboBox<String>();
@@ -59,29 +50,24 @@ public class ConvertScreen extends MainWindow{
         mainPanel.add(dataType2);
         var result = new JTextField(15);
         mainPanel.add(result);
+        result.setEditable(false);
         JButton equals = new JButton("Compute");
         mainPanel.add(equals);
         equals.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        String given = (String) dataType.getSelectedItem();
-                        String target = (String) dataType2.getSelectedItem();
-                        String value = textDisplay.getText();
-                        switch (given + target) {
-                            case "BinaryHexadecimal" -> result.setText(AbstractNumber.binToHex(value));//
-                            case "BinaryInteger" -> result.setText(String.valueOf(new Binary(value).longValue()));
-                            case "BinaryBinary", "HexadecimalHexadecimal", "IntegerInteger" -> result.setText(value);
-                            case "HexadecimalBinary" -> result.setText(AbstractNumber.hexToBin(value));
-                            case "HexadecimalInteger" -> result.setText(String.valueOf(new Hexadecimal(value).longValue()));
-                            case "IntegerBinary" -> result.setText(Integer.toBinaryString(Integer.parseInt(value)));
-                            case "IntegerHexadecimal" -> result.setText(Integer.toHexString(Integer.parseInt(value)));
-                        }
-
-
-                        }
+                e -> {
+                    String given = (String) dataType.getSelectedItem();
+                    String target = (String) dataType2.getSelectedItem();
+                    String value = textDisplay.getText();
+                    switch (given + target) {
+                        case "BinaryHexadecimal" -> result.setText(AbstractNumber.binToHex(value));//
+                        case "BinaryInteger" -> result.setText(String.valueOf(new Binary(value).longValue()));
+                        case "BinaryBinary", "HexadecimalHexadecimal", "IntegerInteger" -> result.setText(value);
+                        case "HexadecimalBinary" -> result.setText(AbstractNumber.hexToBin(value));
+                        case "HexadecimalInteger" -> result.setText(String.valueOf(new Hexadecimal(value).longValue()));
+                        case "IntegerBinary" -> result.setText(Integer.toBinaryString(Integer.parseInt(value)));
+                        case "IntegerHexadecimal" -> result.setText(Integer.toHexString(Integer.parseInt(value)));
                     }
-
+                    }
         );
 
 

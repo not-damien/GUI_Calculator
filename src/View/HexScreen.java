@@ -20,6 +20,7 @@ HexScreen(){
 
     var textDisplay = new JTextField(20);
     mainPanel.add(textDisplay);
+    textDisplay.setEditable(false);
 
 
 
@@ -43,6 +44,7 @@ HexScreen(){
 
     var textDisplay2 = new JTextField(20);
     mainPanel.add(textDisplay2);
+    textDisplay2.setEditable(false);
 
 
     //toggle typing between each text display
@@ -83,16 +85,13 @@ HexScreen(){
     for(int i = 0; i < 10;i++) {
         final int j = i;
         myDigits[i].addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (HasWritingAbility) {
-                            String s = textDisplay.getText();
-                            textDisplay.setText(s + j);
-                        } else {
-                            String s = textDisplay2.getText();
-                            textDisplay2.setText(s + j);
-                        }
+                e -> {
+                    if (HasWritingAbility) {
+                        String s = textDisplay.getText();
+                        textDisplay.setText(s + j);
+                    } else {
+                        String s = textDisplay2.getText();
+                        textDisplay2.setText(s + j);
                     }
                 });
     }
@@ -100,16 +99,13 @@ HexScreen(){
     for(int i = 10; i < 16;i++) {
         int finalI = i;
         myDigits[i].addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (HasWritingAbility) {
-                            String s = textDisplay.getText();
-                            textDisplay.setText(s + myDigits[finalI].getText());
-                        } else {
-                            String s = textDisplay2.getText();
-                            textDisplay2.setText(s + myDigits[finalI].getText());
-                        }
+                e -> {
+                    if (HasWritingAbility) {
+                        String s = textDisplay.getText();
+                        textDisplay.setText(s + myDigits[finalI].getText());
+                    } else {
+                        String s = textDisplay2.getText();
+                        textDisplay2.setText(s + myDigits[finalI].getText());
                     }
                 }
         );
@@ -122,21 +118,18 @@ HexScreen(){
     mainPanel.add(resultArea);
 
     equals.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+            e -> {
 
-                    String first = textDisplay.getText();
-                    String second = textDisplay2.getText();
-                    if(buttons[0].isSelected()){
-                        resultArea.setText(Hexadecimal.addHex(first,second));
-                    }else if(buttons[1].isSelected()){
-                        resultArea.setText(Hexadecimal.minusHex(first,second));
-                    }else if(buttons[2].isSelected()){
-                        resultArea.setText(Hexadecimal.divideHex(first,second));
-                    }else if (buttons[3].isSelected()){
-                        resultArea.setText((Hexadecimal.multiplyHex(first,second)));
-                    }
+                String first = textDisplay.getText();
+                String second = textDisplay2.getText();
+                if(buttons[0].isSelected()){
+                    resultArea.setText(Hexadecimal.addHex(first,second));
+                }else if(buttons[1].isSelected()){
+                    resultArea.setText(Hexadecimal.minusHex(first,second));
+                }else if(buttons[2].isSelected()){
+                    resultArea.setText(Hexadecimal.divideHex(first,second));
+                }else if (buttons[3].isSelected()){
+                    resultArea.setText((Hexadecimal.multiplyHex(first,second)));
                 }
             }
     );

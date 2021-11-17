@@ -1,12 +1,9 @@
 package View;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * @author Damien Cruz
@@ -15,7 +12,7 @@ import java.io.IOException;
 public class MainWindow extends JFrame {
     public final int SIZE_HEIGHT = 300;
     public final int SIZE_WIDTH = 290;
-    JMenuItem exit = new JMenuItem("exit");
+    final JMenuItem exit = new JMenuItem("exit");
     public MainWindow() {
         this.setTitle("Damien's Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,55 +58,24 @@ public class MainWindow extends JFrame {
 
         //Action listener to open hexScreen from menu
         HexCalculator.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new HexScreen();
-
-                    }
-                }
+                e -> new HexScreen()
         );
         //Action Listener to open converter from window
         converter.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new ConvertScreen();
-                    }
-                }
+                e -> new ConvertScreen()
         );
         DecimalCalculator.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new DecimalCalculator();
-                    }
-                }
+                e -> new DecimalCalculator()
         );
         bigNumberCalculator.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new BigNumberCalculator();
-                    }
-                }
+                e -> new BigNumberCalculator()
         );
         binaryCalculator.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        new BinaryCalculator();
-                    }
-                }
+                e -> new BinaryCalculator()
         );
 
         exit.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        System.exit(0);
-                    }
-                }
+                e -> System.exit(0)
         );
 
 

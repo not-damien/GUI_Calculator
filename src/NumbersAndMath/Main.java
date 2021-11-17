@@ -3,11 +3,6 @@ package NumbersAndMath;
 import View.MainWindow;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.ImageConsumer;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-import java.util.Scanner;
 /*
 *implement gui
 *use different panels for each calculator type ie hex calculator, bin calculator-use buttons to prevent invalid input
