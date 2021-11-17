@@ -9,7 +9,9 @@ public class BigNumberCalculator extends MainWindow {
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(Color.DARK_GRAY);
         this.add(mainPanel);
+        setTitle("Big Number Calculator");
+        //todo combo box for decimal or int maybe
+        setVisible(true);
     }
 
-    //todo implement
 }

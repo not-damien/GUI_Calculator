@@ -36,8 +36,10 @@ public class MainWindow extends JFrame {
         calculatorMenu.add(converter);
         var DecimalCalculator = new JMenuItem("Base 10 calculator");
         calculatorMenu.add(DecimalCalculator);
-        var bigNumberCalculatorCalculator = new JMenuItem("Big Number Calculator");
-        calculatorMenu.add(bigNumberCalculatorCalculator);
+        var bigNumberCalculator = new JMenuItem("Big Number Calculator");
+        calculatorMenu.add(bigNumberCalculator);
+        var binaryCalculator = new JMenuItem("Binary Calculator");
+        calculatorMenu.add(binaryCalculator);
         calculatorMenu.add(exit);
 
         var helpMenu = new JMenuItem("Help");
@@ -84,11 +86,19 @@ public class MainWindow extends JFrame {
                     }
                 }
         );
-        bigNumberCalculatorCalculator.addActionListener(
+        bigNumberCalculator.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         new BigNumberCalculator();
+                    }
+                }
+        );
+        binaryCalculator.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        new BinaryCalculator();
                     }
                 }
         );
