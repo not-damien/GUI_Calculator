@@ -3,6 +3,10 @@ package NumbersAndMath;
 import View.MainWindow;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.ImageConsumer;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.util.Scanner;
 /*
 *implement gui
@@ -28,7 +32,6 @@ public class Main {
     }
     public static void setUpMainWindow(){
         var mainWindow = new MainWindow();
-        // TODO: mainWindow showIcon .
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setVisible(true);
     }
