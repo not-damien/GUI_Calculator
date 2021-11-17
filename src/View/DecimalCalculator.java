@@ -103,10 +103,6 @@ public class DecimalCalculator extends MainWindow {
 
 
 
-
-
-
-
         setVisible(true);
                     }
                 }

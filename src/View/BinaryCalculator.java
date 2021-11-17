@@ -16,7 +16,19 @@ public class BinaryCalculator extends MainWindow {
         mainPanel.add(textDisplay);
 
         //todo add buttons
-        //todo radio buttons for "+,-,*,/"
+        String[] radioSymbols = {"+","-","/","*"};
+        JRadioButton[] buttons = new JRadioButton[4];
+
+
+        Panel operationPanel = new Panel();
+        ButtonGroup radioButtons = new ButtonGroup();
+
+        for (int i = 0; i < radioSymbols.length;i++){
+            buttons[i] = new JRadioButton(radioSymbols[i]);
+            radioButtons.add(buttons[i]);
+            operationPanel.add(buttons[i]);
+        }
+        mainPanel.add(operationPanel);
 
 
 
