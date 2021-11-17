@@ -28,7 +28,11 @@ public class DecimalCalculator extends MainWindow {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             String s = textDisplay.getText();
-                            textDisplay.setText(s + finalI);
+                            if(s.contains("=")){
+                                textDisplay.setText(finalI + "");
+                            }else {
+                                textDisplay.setText(s +finalI);
+                            }
                         }
                     }
             );
@@ -48,7 +52,7 @@ public class DecimalCalculator extends MainWindow {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             String s = textDisplay.getText();
-                            textDisplay.setText(s + myOperations[finalI].getText());
+                            textDisplay.setText(s + " " + myOperations[finalI].getText() + " ");
                         }
                     }
             );
@@ -57,7 +61,25 @@ public class DecimalCalculator extends MainWindow {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //todo "=" functions
+                        //todo change to include decimals
+
+                        String s = textDisplay.getText();
+                        textDisplay.setText(s );
+                        String[] n = s.split(" ");
+                        int val1 = Integer.parseInt(n[0]);
+                        int val2 = Integer.parseInt(n[2]);
+                        if(s.contains("+")){
+                            textDisplay.setText(s + "=" + (val1  +  val2));
+                        }
+                        if(s.contains("-")){
+                            textDisplay.setText(s + "=" + (val1  -  val2));
+                        }
+                        if(s.contains("/")){
+                            textDisplay.setText(s + "=" + (val1  /  val2));
+                        }                                           
+                        if(s.contains("*")){
+                            textDisplay.setText(s + "=" + (val1  *  val2));
+                        }
                     }
                 }
         );
@@ -66,7 +88,7 @@ public class DecimalCalculator extends MainWindow {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //todo clear functionality
+                        textDisplay.setText("");
                     }
                 }
         );

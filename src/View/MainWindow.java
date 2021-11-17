@@ -1,9 +1,12 @@
 package View;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author Damien Cruz
@@ -21,7 +24,6 @@ public class MainWindow extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(Color.gray);
         this.add(mainPanel);
-
 
         //creating and building the menu bar
         var menuBar = new JMenuBar();
@@ -119,4 +121,5 @@ public class MainWindow extends JFrame {
         return digits;
 
     }
+
 }
