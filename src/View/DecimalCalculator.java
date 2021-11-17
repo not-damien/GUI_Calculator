@@ -61,25 +61,25 @@ public class DecimalCalculator extends MainWindow {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //todo change to include decimals
 
                         String s = textDisplay.getText();
-                        textDisplay.setText(s );
+                        textDisplay.setText(s);
                         String[] n = s.split(" ");
                         int val1 = Integer.parseInt(n[0]);
                         int val2 = Integer.parseInt(n[2]);
-                        if(s.contains("+")){
-                            textDisplay.setText(s + "=" + (val1  +  val2));
+                        if (s.contains("+")) {
+                            textDisplay.setText(s + "=" + (val1 + val2));
                         }
-                        if(s.contains("-")){
-                            textDisplay.setText(s + "=" + (val1  -  val2));
+                        if (s.contains("-")) {
+                            textDisplay.setText(s + "=" + (val1 - val2));
                         }
-                        if(s.contains("/")){
-                            textDisplay.setText(s + "=" + (val1  /  val2));
-                        }                                           
-                        if(s.contains("*")){
-                            textDisplay.setText(s + "=" + (val1  *  val2));
+                        if (s.contains("/")) {
+                            textDisplay.setText(s + "=" + (val1 / val2));
                         }
+                        if (s.contains("*")) {
+                            textDisplay.setText(s + "=" + (val1 * val2));
+                        }
+                        //todo change to include decimals
                     }
                 }
         );
@@ -108,5 +108,5 @@ public class DecimalCalculator extends MainWindow {
 
 
         setVisible(true);
-    }
-}
+                    }
+                }
