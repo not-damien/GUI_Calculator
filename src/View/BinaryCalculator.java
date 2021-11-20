@@ -3,18 +3,11 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class BinaryCalculator extends MainWindow {
+public class BinaryCalculator extends AbstractCalculatorScreen {
     BinaryCalculator() {
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        JPanel mainPanel = new JPanel();
-        mainPanel.setBackground(Color.DARK_GRAY);
-        this.add(mainPanel);
         setTitle("Binary Calculator");
 
 
-        var textDisplay = new JTextField(20);
-        mainPanel.add(textDisplay);
-        textDisplay.setEditable(false);
 
         //todo add buttons
         String[] radioSymbols = {"+","-","/","*"};

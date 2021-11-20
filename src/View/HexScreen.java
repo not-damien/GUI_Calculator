@@ -4,24 +4,13 @@ import NumbersAndMath.Hexadecimal;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-public class HexScreen extends MainWindow{
+
+public class HexScreen extends AbstractCalculatorScreen{
     boolean HasWritingAbility; //true means test1 has it, false means text 2 has it
 HexScreen(){
-    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    JPanel mainPanel = new JPanel();
-    mainPanel.setBackground(Color.DARK_GRAY);
-    this.add(mainPanel);
     setTitle("Hexadecimal Calculator");
-
-
-    var textDisplay = new JTextField(20);
-    mainPanel.add(textDisplay);
-    textDisplay.setEditable(false);
-
 
 
 
@@ -42,7 +31,6 @@ HexScreen(){
     mainPanel.add(equals);
 
 
-    var textDisplay2 = new JTextField(20);
     mainPanel.add(textDisplay2);
     textDisplay2.setEditable(false);
 

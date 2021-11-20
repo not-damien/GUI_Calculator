@@ -7,9 +7,8 @@ import NumbersAndMath.Hexadecimal;
 import javax.swing.*;
 import java.awt.*;
 
-public class ConvertScreen extends MainWindow{
+public class ConvertScreen extends AbstractCalculatorScreen {
     ConvertScreen(){
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Converter");
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(Color.cyan);

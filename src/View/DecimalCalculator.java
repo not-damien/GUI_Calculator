@@ -2,20 +2,12 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class DecimalCalculator extends MainWindow {
+public class DecimalCalculator extends AbstractCalculatorScreen {
     public DecimalCalculator() {
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        JPanel mainPanel = new JPanel();
-        mainPanel.setBackground(Color.DARK_GRAY);
-        this.add(mainPanel);
+        setTitle("Base 10");
 
 
-        var textDisplay = new JTextField(20);
-        textDisplay.setEditable(false);
-        mainPanel.add(textDisplay);
 
 
         JButton[] myButtons = createButtons();
