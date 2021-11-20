@@ -37,7 +37,7 @@ public class Hexadecimal extends AbstractNumber {
     public static long hexToLong(String theNum){
         return new Hexadecimal(theNum).longValue();
     }
-    public static String addHex(String one, String two ){//make this more elagant maybe with static hexConvert
+    public static String addHex(String one, String two ){//make this more elegant maybe with static hexConvert
         return new Hexadecimal(hexToLong(one)+hexToLong(two)).toString();
     }
     public static String minusHex(String first, String second) {

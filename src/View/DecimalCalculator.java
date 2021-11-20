@@ -1,94 +1,47 @@
 package View;
 
+
 import javax.swing.*;
 import java.awt.*;
 
 public class DecimalCalculator extends AbstractCalculatorScreen {
     public DecimalCalculator() {
-        setTitle("Base 10");
+        setTitle("Base 10");//name this window
 
+        buttonPanel.setLayout(new GridLayout(4,4));//chose layout that looks best for buttons I need
 
-
-
-        JButton[] myButtons = createButtons();
-        var buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(5,4));
-        for(int i =0;i < 10;i++ ){
-            buttonPanel.add(myButtons[i]);
-            int finalI = i;
-            myButtons[i].addActionListener(
-                    e -> {
-                        String s = textDisplay.getText();
-                        if(s.contains("=")){
-                            textDisplay.setText(finalI + "");
-                        }else {
-                            textDisplay.setText(s +finalI);
-                        }
-                    }
-            );
-        }
-
-        String[] operationSymbols = { "+","-","/","*", "=","Clear"};
-        JButton[] myOperations = new JButton[7];
-        for(int i = 0; i < operationSymbols.length;i++){
-            myOperations[i] = new JButton(operationSymbols[i]);
-            buttonPanel.add(myOperations[i]);
-        }
         JButton decimalPoint = new JButton(".");
-        buttonPanel.add(decimalPoint);
+        buttonPanel.add(decimalPoint);//adding a decimal point button so I can enter decimal numbers
+
+
         decimalPoint.addActionListener(
                 e -> {
                     String s = textDisplay.getText();
                     textDisplay.setText(s + ".");
-                }
+                }//behavior for decimal point button
         );
-        for(int i = 0 ; i < 4 ;i++){
-            int finalI = i;
-            myOperations[i].addActionListener(
-                    e -> {
-                        String s = textDisplay.getText();
-                        textDisplay.setText(s + " " + myOperations[finalI].getText() + " ");
-                    }
-            );
-        }
+        buttonPanel.add(clear);//adding clear button
 
-        myOperations[4].addActionListener(
-                e -> {
-                    double val1,val2;
-                    String s = textDisplay.getText();
-                    textDisplay.setText(s);
-                    String[] n = s.split(" ");
-                    val1= Double.parseDouble(n[0]);
-                    val2 = Double.parseDouble(n[2]);
-                    if (s.contains("+")) {
-                        textDisplay.setText(s + "=" + (val1 + val2));
+
+        mainPanel.add(buttonPanel);//attaching completed button panel to mainPanel
+
+        equals.addActionListener(
+                e -> {//This class's compute action
+                    double first = Double.parseDouble(textDisplay.getText());
+                    double second = Double.parseDouble(textDisplay2.getText());
+                    if(buttons[0].isSelected()){
+                        resultArea.setText((first + second) + "");
+                    }else if(buttons[1].isSelected()){
+                        resultArea.setText((first - second )+ "");
+                    }else if(buttons[2].isSelected()){
+                        resultArea.setText((first / second ) + "");
+                    }else if (buttons[3].isSelected()){
+                        resultArea.setText((first * second) + "");
                     }
-                    if (s.contains("-")) {
-                        textDisplay.setText(s + "=" + (val1 - val2));
-                    }
-                    if (s.contains("/")) {
-                        textDisplay.setText(s + "=" + (val1 / val2));
-                    }
-                    if (s.contains("*")) {
-                        textDisplay.setText(s + "=" + (val1 * val2));
-                    }
-                    //todo change to include decimals
                 }
         );
 
-        myOperations[5].addActionListener(
-                e -> textDisplay.setText("")
-        );
-
-        mainPanel.add(buttonPanel);
-
-
-
-
-
-
-
-
+        mainPanel.add(resultArea);//placing result area
 
         setVisible(true);
                     }
