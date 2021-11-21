@@ -10,16 +10,10 @@ public class DecimalCalculator extends AbstractCalculatorScreen {
 
         buttonPanel.setLayout(new GridLayout(4,4));//chose layout that looks best for buttons I need
 
-        JButton decimalPoint = new JButton(".");
         buttonPanel.add(decimalPoint);//adding a decimal point button so I can enter decimal numbers
 
 
-        decimalPoint.addActionListener(
-                e -> {
-                    String s = textDisplay.getText();
-                    textDisplay.setText(s + ".");
-                }//behavior for decimal point button
-        );
+
         buttonPanel.add(clear);//adding clear button
 
 

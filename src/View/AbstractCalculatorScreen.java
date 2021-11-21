@@ -7,15 +7,16 @@ import java.awt.event.FocusListener;
 
 public class AbstractCalculatorScreen extends MainWindow {
     JPanel mainPanel = new JPanel();//to hold all components
-    JTextField textDisplay = new JTextField(20);//used for enter first operand
-    JTextField textDisplay2 = new JTextField(20);//used to enter second operand
+    JTextArea textDisplay = new JTextArea(1,20);//used for enter first operand
+    JTextArea textDisplay2 = new JTextArea(1,20);//used to enter second operand
     JButton equals = new JButton("Compute");//action listener must be implemented in inheriting class
     JRadioButton[] buttons = new JRadioButton[4];//+-/*
-    JTextField resultArea = new JTextField(20);// where results should go
+    JTextArea resultArea = new JTextArea(1,20);// where results should go
     JPanel buttonPanel = new JPanel();//for buttons, 0-9 already added
     boolean HasWritingAbility = true; //true means text1 has it, false means text 2 has it
     JButton[] myDigits = createButtons();//an array of Jbutton  0-9 and A-F
     JButton clear = new JButton("Clear");//must be added to button panel in preferred spot, already functional
+    JButton decimalPoint = new JButton(".");//must be added to button in preferred spot, already has functionality
     AbstractCalculatorScreen() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         mainPanel.setBackground(Color.DARK_GRAY);
@@ -71,18 +72,23 @@ public class AbstractCalculatorScreen extends MainWindow {
                     }
                 }
         );
-
-
-
-
-
+        decimalPoint.addActionListener(
+                e -> {
+                    if (HasWritingAbility) {
+                        String s = textDisplay.getText();
+                        textDisplay.setText(s + ".");
+                    } else {
+                        String s = textDisplay2.getText();
+                        textDisplay2.setText(s + ".");
+                    }
+                }//behavior for decimal point button
+        );
         textDisplay.addFocusListener(
                 new FocusListener() {
                     @Override
                     public void focusGained(FocusEvent e) {
                         HasWritingAbility = true;
                     }
-
                     @Override
                     public void focusLost(FocusEvent e) {}//do nothing
                 }
@@ -93,16 +99,10 @@ public class AbstractCalculatorScreen extends MainWindow {
                     public void focusGained(FocusEvent e) {
                         HasWritingAbility = false;
                     }
-
                     @Override
                     public void focusLost(FocusEvent e) {}//do nothing
                 }
         );
-
-
-
-
-
     }
 
 
