@@ -19,35 +19,32 @@ public class AbstractCalculatorScreen extends MainWindow {
     JButton decimalPoint = new JButton(".");//must be added to button in preferred spot, already has functionality
     AbstractCalculatorScreen() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        mainPanel.setBackground(Color.DARK_GRAY);
+        mainPanel.setBackground(Color.DARK_GRAY);//easy on the eyes unoffensive
         this.add(mainPanel);
 
 
-
-
-
-        textDisplay.setEditable(false);
+        textDisplay.setEditable(false);//for preventing invalid input
         mainPanel.add(textDisplay);
 
 
-        String[] radioSymbols = {"+","-","/","*"};
+        String[] radioSymbols = {"+","-","/","*"};//basic things all calculators must do
         Panel operationPanel = new Panel();
         ButtonGroup radioButtons = new ButtonGroup();
 
-        for (int i = 0; i < radioSymbols.length;i++){
+        for (int i = 0; i < radioSymbols.length;i++){//setting up radio buttons
             buttons[i] = new JRadioButton(radioSymbols[i]);
             radioButtons.add(buttons[i]);
             operationPanel.add(buttons[i]);
         }
-        mainPanel.add(operationPanel);
+        mainPanel.add(operationPanel);//adding radio buttons
 
-        mainPanel.add(equals);
+        mainPanel.add(equals);//adding button to compute
 
-        mainPanel.add(textDisplay2);
-        textDisplay2.setEditable(false);
+        mainPanel.add(textDisplay2);//adding area to input second value
+        textDisplay2.setEditable(false);//invalid input prevention
 
 
-        for(int i = 0; i < 10;i++) {
+        for(int i = 0; i < 10;i++) {//adding 0-9 buttons and giving them the ability to write to both text Areas
             buttonPanel.add(myDigits[i]);
             final int j = i;
             myDigits[i].addActionListener(
@@ -63,7 +60,7 @@ public class AbstractCalculatorScreen extends MainWindow {
         }
 
 
-        clear.addActionListener(
+        clear.addActionListener(//clears selected text area
                 e -> {
                     if (HasWritingAbility) {
                         textDisplay.setText("");
@@ -72,7 +69,7 @@ public class AbstractCalculatorScreen extends MainWindow {
                     }
                 }
         );
-        decimalPoint.addActionListener(
+        decimalPoint.addActionListener(//can be added to calculators that need decimal button, clears selected screen
                 e -> {
                     if (HasWritingAbility) {
                         String s = textDisplay.getText();
@@ -83,7 +80,7 @@ public class AbstractCalculatorScreen extends MainWindow {
                     }
                 }//behavior for decimal point button
         );
-        textDisplay.addFocusListener(
+        textDisplay.addFocusListener(//used to determine what screen buttons should write to
                 new FocusListener() {
                     @Override
                     public void focusGained(FocusEvent e) {
@@ -104,6 +101,5 @@ public class AbstractCalculatorScreen extends MainWindow {
                 }
         );
     }
-
 
 }
