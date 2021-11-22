@@ -73,10 +73,14 @@ public class AbstractCalculatorScreen extends MainWindow {
                 e -> {
                     if (HasWritingAbility) {
                         String s = textDisplay.getText();
-                        textDisplay.setText(s + ".");
+                        if(!s.contains(".")) {
+                            textDisplay.setText(s + ".");
+                        }
                     } else {
                         String s = textDisplay2.getText();
-                        textDisplay2.setText(s + ".");
+                        if(!s.contains(".")) {
+                            textDisplay2.setText(s + ".");
+                        }
                     }
                 }//behavior for decimal point button
         );
