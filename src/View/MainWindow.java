@@ -2,8 +2,6 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * The type Main window.
@@ -54,15 +52,11 @@ public class MainWindow extends JFrame {
         calculatorMenu.add(binaryCalculator);
         calculatorMenu.add(exit);
 
-        var helpMenu = new JMenuItem("Help");
-        menuBar.add(helpMenu);
-        helpMenu.addActionListener(
-                e -> {
 
-                }
-        );
-        var aboutMenu = new JMenu("About");
+        var aboutMenu = new JMenuItem("About");
         menuBar.add(aboutMenu);
+        aboutMenu.setToolTipText("Click Calculator menu to select a calculator");
+
 
         var description = new JTextArea(10,25);
         description.setEditable(false);
@@ -74,7 +68,17 @@ public class MainWindow extends JFrame {
                  A four function decimal calculator
                  And a Big Number Calculator""");
         mainPanel.add(description);
-
+        aboutMenu.addActionListener(
+                e -> description.setText("""
+                        This Program may be a little rough
+                        select a calculator from the calculator menu
+                        the first argument of a math
+                        operation should go in the
+                        first text box and the second should go in the second
+                        text box, to switch text boxes click on
+                        the one you would like to edit
+                        when finish select an operation and click compute""")
+        );
 
         //Action listener to open hexScreen from menu
         HexCalculator.addActionListener(

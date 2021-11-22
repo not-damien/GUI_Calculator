@@ -31,8 +31,10 @@ public class BigNumberCalculator extends AbstractCalculatorScreen {
         extraFunc.setLayout(new GridLayout(3,1));
         JButton gcd = new JButton("GCD");
         JButton lcm = new JButton("LCM");
+        JButton neg = new JButton("Negate");
         extraFunc.add(gcd);
         extraFunc.add(lcm);
+        extraFunc.add(neg);
         mainPanel.add(extraFunc);
 
 
@@ -93,6 +95,16 @@ public class BigNumberCalculator extends AbstractCalculatorScreen {
                     resultArea.setText(BigNumberMath.LCM(first, second, (int) precision.getSelectedItem()).toString());
                 }
         );
+        neg.addActionListener(
+                e -> {
+                    if (HasWritingAbility) {
+                        BigDecimal first = new BigDecimal(textDisplay.getText());
+                        textDisplay.setText(first.negate().toString());
+                    } else {
+                        BigDecimal second = new BigDecimal(textDisplay2.getText());
+                        textDisplay2.setText(second.negate().toString());
+                    }
+                });
 
 
         mainPanel.add(resultArea);//area to display the result
