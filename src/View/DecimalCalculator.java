@@ -36,6 +36,8 @@ public class DecimalCalculator extends AbstractCalculatorScreen {
                         resultArea.setText((first / second ) + "");
                     }else if (buttons[3].isSelected()){
                         resultArea.setText((first * second) + "");
+                    }else if(buttons[4].isSelected()){
+                        resultArea.setText((first % second) + "");
                     }
                 }
         );

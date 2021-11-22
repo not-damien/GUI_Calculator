@@ -28,7 +28,7 @@ public class AbstractCalculatorScreen extends MainWindow {
     /**
      * The Buttons.+-/*
      */
-    JRadioButton[] buttons = new JRadioButton[4];
+    JRadioButton[] buttons = new JRadioButton[5];
     /**
      * The Result area. where the results should go
      */
@@ -63,11 +63,13 @@ public class AbstractCalculatorScreen extends MainWindow {
         this.add(mainPanel);
 
 
+        resultArea.setToolTipText("Final result appears here.");
+        textDisplay.setToolTipText("Enter X value here.");
         textDisplay.setEditable(false);//for preventing invalid input
         mainPanel.add(textDisplay);
 
 
-        String[] radioSymbols = {"+","-","/","*"};//basic things all calculators must do
+        String[] radioSymbols = {"+","-","/","*","%"};//basic things all calculators must do
         Panel operationPanel = new Panel();
         ButtonGroup radioButtons = new ButtonGroup();
 
@@ -79,8 +81,8 @@ public class AbstractCalculatorScreen extends MainWindow {
         mainPanel.add(operationPanel);//adding radio buttons
 
         mainPanel.add(equals);//adding button to compute
-
         mainPanel.add(textDisplay2);//adding area to input second value
+        textDisplay2.setToolTipText("Enter Y value here");
         textDisplay2.setEditable(false);//invalid input prevention
 
 

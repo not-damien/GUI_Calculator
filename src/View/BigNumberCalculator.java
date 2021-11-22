@@ -19,13 +19,13 @@ public class BigNumberCalculator extends AbstractCalculatorScreen {
         setTitle("Big Number Calculator");//name of calculator
 
         //everything is bigger here
-        setSize(480,500);
+        setSize(450,500);
         textDisplay.setRows(5);
-        textDisplay.setColumns(40);
+        textDisplay.setColumns(37);
         textDisplay2.setRows(5);
-        textDisplay2.setColumns(40);
+        textDisplay2.setColumns(37);
         resultArea.setRows(5);
-        resultArea.setColumns(40);
+        resultArea.setColumns(37);
 
         JPanel extraFunc = new JPanel();
         extraFunc.setLayout(new GridLayout(3,1));
@@ -70,6 +70,12 @@ public class BigNumberCalculator extends AbstractCalculatorScreen {
                         resultArea.setText(first.divide(second, (int) precision.getSelectedItem(), RoundingMode.HALF_DOWN).toString());
                     }else if (buttons[3].isSelected()){
                         resultArea.setText(first.multiply(second).toString());
+                    }else if(buttons[4].isSelected()){
+                        if(first.scale() > 0 || second.scale() > 0) {
+                            resultArea.setText("Enter Integer values only for Modulus function");
+                        }else {
+                            resultArea.setText(first.unscaledValue().mod(second.unscaledValue()).toString());
+                        }
                     }
                 }
         );

@@ -41,6 +41,8 @@ public class BinaryCalculator extends AbstractCalculatorScreen {
                         resultArea.setText(Integer.toBinaryString((first / second)));
                     }else if (buttons[3].isSelected()){//multiply
                         resultArea.setText(Integer.toBinaryString((first * second)));
+                    }else if (buttons[4].isSelected()){
+                        resultArea.setText(Integer.toBinaryString((first % second)));
                     }
                 }
         );

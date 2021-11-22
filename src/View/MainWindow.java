@@ -2,6 +2,8 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * The type Main window.
@@ -17,7 +19,7 @@ public class MainWindow extends JFrame {
     /**
      * The Size width.
      */
-    public final int SIZE_WIDTH = 290;
+    public final int SIZE_WIDTH = 300;
     /**
      * The Exit menu.
      */
@@ -54,6 +56,11 @@ public class MainWindow extends JFrame {
 
         var helpMenu = new JMenuItem("Help");
         menuBar.add(helpMenu);
+        helpMenu.addActionListener(
+                e -> {
+
+                }
+        );
         var aboutMenu = new JMenu("About");
         menuBar.add(aboutMenu);
 

@@ -17,6 +17,7 @@ public class ConvertScreen extends AbstractCalculatorScreen {
     ConvertScreen(){
         setTitle("Converter");
         JPanel mainPanel = new JPanel();
+        setSize(290,300);
         mainPanel.setBackground(Color.cyan);
         this.add(mainPanel);
 

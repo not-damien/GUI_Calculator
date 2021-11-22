@@ -59,6 +59,9 @@ public class HexScreen extends AbstractCalculatorScreen{
                     resultArea.setText(Hexadecimal.divideHex(first,second));
                 }else if (buttons[3].isSelected()){
                     resultArea.setText((Hexadecimal.multiplyHex(first,second)));
+                }else if(buttons[4].isSelected()){
+                    resultArea.setText(new Hexadecimal(Hexadecimal.hexToLong(first) %
+                                Hexadecimal.hexToLong(second)).toString());
                 }
             }
     );
