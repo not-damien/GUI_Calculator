@@ -7,7 +7,13 @@ import NumbersAndMath.Hexadecimal;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The type Convert screen.
+ */
 public class ConvertScreen extends AbstractCalculatorScreen {
+    /**
+     * Instantiates a new Convert screen.
+     */
     ConvertScreen(){
         setTitle("Converter");
         JPanel mainPanel = new JPanel();
@@ -15,7 +21,7 @@ public class ConvertScreen extends AbstractCalculatorScreen {
         this.add(mainPanel);
 
 
-        var dataType = new JComboBox<String>();
+        var dataType = new JComboBox<String>();//to figure out what kind of value they gave me
         dataType.addItem("Binary");
         dataType.addItem("Hexadecimal");
         dataType.addItem("Integer");
@@ -42,7 +48,7 @@ public class ConvertScreen extends AbstractCalculatorScreen {
         }
 
 
-        var dataType2 = new JComboBox<String>();
+        var dataType2 = new JComboBox<String>();//to figure out what value they want
         dataType2.addItem("Binary");
         dataType2.addItem("Hexadecimal");
         dataType2.addItem("Integer");
@@ -52,7 +58,7 @@ public class ConvertScreen extends AbstractCalculatorScreen {
         result.setEditable(false);
         JButton equals = new JButton("Compute");
         mainPanel.add(equals);
-        equals.addActionListener(
+        equals.addActionListener(//action listener to compute
                 e -> {
                     String given = (String) dataType.getSelectedItem();
                     String target = (String) dataType2.getSelectedItem();

@@ -4,7 +4,13 @@ import NumbersAndMath.Binary;
 
 import javax.swing.*;
 
+/**
+ * The type Binary calculator.
+ */
 public class BinaryCalculator extends AbstractCalculatorScreen {
+    /**
+     * Instantiates a new Binary calculator.
+     */
     BinaryCalculator() {
         setTitle("Binary Calculator");
 

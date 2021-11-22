@@ -3,7 +3,13 @@ package View;
 
 import java.awt.*;
 
+/**
+ * The type Decimal calculator.
+ */
 public class DecimalCalculator extends AbstractCalculatorScreen {
+    /**
+     * Instantiates a new Decimal calculator.
+     */
     public DecimalCalculator() {
         setTitle("Base 10");//name this window
 

@@ -4,20 +4,26 @@ import NumbersAndMath.Hexadecimal;
 
 import java.awt.*;
 
+/**
+ * The type Hex screen.
+ */
 public class HexScreen extends AbstractCalculatorScreen{
-HexScreen(){
+    /**
+     * Instantiates a new Hex screen.
+     */
+    HexScreen(){
     setTitle("Hexadecimal Calculator");
 
 
 
-    buttonPanel.setLayout(new GridLayout(4,4));
+    buttonPanel.setLayout(new GridLayout(4,4));//picking layout
     mainPanel.add(buttonPanel);
 
 
 
 
 
-    for(int i = 10; i < 16;i++) {
+    for(int i = 10; i < 16;i++) {//Adding A-F  to panel
         buttonPanel.add(myDigits[i]);
         int finalI = i;
         myDigits[i].addActionListener(
@@ -40,7 +46,7 @@ HexScreen(){
 
     mainPanel.add(resultArea);
 
-    equals.addActionListener(
+    equals.addActionListener(//this windows compute button implementation
             e -> {
 
                 String first = textDisplay.getText();

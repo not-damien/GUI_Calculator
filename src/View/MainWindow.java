@@ -4,13 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * The type Main window.
+ *
  * @author Damien Cruz
  * @version Nov 10, 2021
  */
 public class MainWindow extends JFrame {
+    /**
+     * The Size height.
+     */
     public final int SIZE_HEIGHT = 300;
+    /**
+     * The Size width.
+     */
     public final int SIZE_WIDTH = 290;
+    /**
+     * The Exit menu.
+     */
     final JMenuItem exit = new JMenuItem("exit");
+
+    /**
+     * Instantiates a new Main window.
+     */
     public MainWindow() {
         this.setTitle("Damien's Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -81,6 +96,7 @@ public class MainWindow extends JFrame {
 
     /**
      * creates 16 JButtons ordered 0-9 and A--F
+     *
      * @return An array of Jbuttons 0-9 & A-F
      */
     public static JButton[] createButtons(){

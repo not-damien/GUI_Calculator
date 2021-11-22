@@ -5,18 +5,58 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
+/**
+ * The type Abstract calculator screen.
+ */
 public class AbstractCalculatorScreen extends MainWindow {
-    JPanel mainPanel = new JPanel();//to hold all components
-    JTextArea textDisplay = new JTextArea(1,20);//used for enter first operand
-    JTextArea textDisplay2 = new JTextArea(1,20);//used to enter second operand
+    /**
+     * The Main panel. to hold all components
+     */
+    JPanel mainPanel = new JPanel();
+    /**
+     * The Text display used for enter first operand
+     */
+    JTextArea textDisplay = new JTextArea(1,20);
+    /**
+     * The Text display 2 used to enter second operand
+     */
+    JTextArea textDisplay2 = new JTextArea(1,20);//
+    /**
+     * The Equals button . action listener must be implemented in inheriting class
+     */
     JButton equals = new JButton("Compute");//action listener must be implemented in inheriting class
-    JRadioButton[] buttons = new JRadioButton[4];//+-/*
-    JTextArea resultArea = new JTextArea(1,20);// where results should go
-    JPanel buttonPanel = new JPanel();//for buttons, 0-9 already added
-    boolean HasWritingAbility = true; //true means text1 has it, false means text 2 has it
+    /**
+     * The Buttons.+-/*
+     */
+    JRadioButton[] buttons = new JRadioButton[4];
+    /**
+     * The Result area. where the results should go
+     */
+    JTextArea resultArea = new JTextArea(1,20);
+    /**
+     * The Button panel.for buttons, 0-9 already added
+     */
+    JPanel buttonPanel = new JPanel();
+    /**
+     * The Has writing ability. true means textDisplay1 has it, false means textDisplay2 has it
+     */
+    boolean HasWritingAbility = true;
+    /**
+     * The digits. an array of Jbutton  0-9 and A-F
+     */
     JButton[] myDigits = createButtons();//an array of Jbutton  0-9 and A-F
-    JButton clear = new JButton("Clear");//must be added to button panel in preferred spot, already functional
-    JButton decimalPoint = new JButton(".");//must be added to button in preferred spot, already has functionality
+    /**
+     * The Clear button. must be added to button panel in preferred spot, already functional
+     */
+    JButton clear = new JButton("Clear");
+    /**
+     * The Decimal point. must be added to button in preferred spot, already has functionality
+     */
+    JButton decimalPoint = new JButton(".");
+
+    /**
+     * Instantiates a new Abstract calculator screen.
+     */
     AbstractCalculatorScreen() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         mainPanel.setBackground(Color.DARK_GRAY);//easy on the eyes unoffensive

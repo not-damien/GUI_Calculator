@@ -7,8 +7,14 @@ import java.awt.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//todo keep under 862
+/**
+ * The type Big number calculator.
+ */
+// keep under 862
 public class BigNumberCalculator extends AbstractCalculatorScreen {
+    /**
+     * Instantiates a new Big number calculator.
+     */
     public BigNumberCalculator() {
         setTitle("Big Number Calculator");//name of calculator
 
@@ -67,14 +73,14 @@ public class BigNumberCalculator extends AbstractCalculatorScreen {
                     }
                 }
         );
-        gcd.addActionListener(
+        gcd.addActionListener(//action listener for greatest common denominator
                 e -> {
                     BigDecimal first = new BigDecimal(textDisplay.getText());
                     BigDecimal second = new BigDecimal(textDisplay2.getText());
                     resultArea.setText(BigNumberMath.GCD(first, second).toString());
                 }
         );
-        lcm.addActionListener(
+        lcm.addActionListener(//action listener for Least common multiple
                 e -> {
                     BigDecimal first = new BigDecimal(textDisplay.getText());
                     BigDecimal second = new BigDecimal(textDisplay2.getText());

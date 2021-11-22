@@ -1,10 +1,17 @@
 package NumbersAndMath;
 
+/**
+ * The type Binary.
+ */
 public class Binary extends AbstractNumber {
+    /**
+     * Instantiates a new Binary.
+     *
+     * @param theBin a String representation of a Binary value i.e "0101"
+     */
     public Binary(String theBin){
         myData = theBin;
     }
-
 
     /**
      *
