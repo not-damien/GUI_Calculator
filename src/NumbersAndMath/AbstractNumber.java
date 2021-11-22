@@ -11,7 +11,7 @@ public abstract class AbstractNumber {
 
 
     /**.
-     *for use to get the value repressed by the number in long form
+     *for used to get the value repressed by the number in long form
      * @return long value of the objects data
      */
     abstract long longValue();
@@ -40,7 +40,7 @@ public abstract class AbstractNumber {
      * @return the value of the given hex value represented in a binary string
      */
     public static String hexToBin(String value) {
-        return String.valueOf(new Binary(new Hexadecimal(value).toString()));
+        return Integer.toBinaryString((int) new Hexadecimal(value).longValue());
     }
 
 }

@@ -34,7 +34,7 @@ public class Hexadecimal extends AbstractNumber {
                 //single out chars that represent ints
                 if ((c[i] <= 57) && c[i] >= 48) res +=
                         (((int) c[i] - 48) *  Math.pow(16, c.length - (i + 1)));// works
-                else res += (((int) c[i] - 87) * Math.pow(16, c.length - (i + 1)));
+                else res +=( (((int) c[i] - 87) * Math.pow(16, c.length - (i + 1))));
             }
         }
         return res;

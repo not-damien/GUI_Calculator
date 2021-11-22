@@ -35,17 +35,29 @@ public class ConvertScreen extends AbstractCalculatorScreen {
         buttonPanel.setLayout(new GridLayout(4,4));
         mainPanel.add(buttonPanel);
         JButton[] myDigits = createButtons();
-        for (JButton b:
-                myDigits) {
-            buttonPanel.add(b);
-        }
         for(int i = 0; i < 10;i++) {
+            buttonPanel.add(myDigits[i]);
             final int j = i;
             myDigits[i].addActionListener(
                     e -> {
                             String s = textDisplay.getText();
                             textDisplay.setText(s + j);
                     });
+        }
+        for(int i = 10; i < 16;i++) {//Adding A-F  to panel
+            buttonPanel.add(myDigits[i]);
+            int finalI = i;
+            myDigits[i].addActionListener(
+                    e -> {
+                        if (HasWritingAbility) {
+                            String s = textDisplay.getText();
+                            textDisplay.setText(s + myDigits[finalI].getText());
+                        } else {
+                            String s = textDisplay2.getText();
+                            textDisplay2.setText(s + myDigits[finalI].getText());
+                        }
+                    }
+            );
         }
 
 
@@ -59,6 +71,12 @@ public class ConvertScreen extends AbstractCalculatorScreen {
         result.setEditable(false);
         JButton equals = new JButton("Compute");
         mainPanel.add(equals);
+        mainPanel.add(clear);
+        clear.addActionListener(
+                e -> {
+                    textDisplay.setText("");
+                }
+        );
         equals.addActionListener(//action listener to compute
                 e -> {
                     String given = (String) dataType.getSelectedItem();
@@ -69,7 +87,7 @@ public class ConvertScreen extends AbstractCalculatorScreen {
                         case "BinaryInteger" -> result.setText(String.valueOf(new Binary(value).longValue()));
                         case "BinaryBinary", "HexadecimalHexadecimal", "IntegerInteger" -> result.setText(value);
                         case "HexadecimalBinary" -> result.setText(AbstractNumber.hexToBin(value));
-                        case "HexadecimalInteger" -> result.setText(String.valueOf(new Hexadecimal(value).longValue()));
+                        case "HexadecimalInteger" -> result.setText(new Hexadecimal(value).longValue() + "");
                         case "IntegerBinary" -> result.setText(Integer.toBinaryString(Integer.parseInt(value)));
                         case "IntegerHexadecimal" -> result.setText(Integer.toHexString(Integer.parseInt(value)));
                     }
